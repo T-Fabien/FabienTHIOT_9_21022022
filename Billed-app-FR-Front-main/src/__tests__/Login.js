@@ -39,12 +39,12 @@ describe("Given that I am a user on login page", () => {
       fireEvent.change(inputPasswordUser, { target: { value: "azerty" } });
       expect(inputPasswordUser.value).toBe("azerty");
 
-      const form = screen.getByTestId("form-employee");
+      const form = screen.getByTestId("form-admin");
       const handleSubmit = jest.fn((e) => e.preventDefault());
 
       form.addEventListener("submit", handleSubmit);
       fireEvent.submit(form);
-      expect(screen.getByTestId("form-employee")).toBeTruthy();
+      expect(screen.getByTestId("form-admin")).toBeTruthy();
     });
   });
 

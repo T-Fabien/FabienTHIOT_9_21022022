@@ -31,14 +31,14 @@ export default class NewBill {
     formData.append('email', email)
 
     //get the extention
-    const fileExt = fileName.split(".")[1];
+    const fileType = file['type'].split("/")[0];
+    const fileExt = file['type'].split("/")[1];
 
     //check the extension
     const ExtSupported = ["jpg", "jpeg", "png"];
 
-    if(ExtSupported.includes(fileExt))
+    if(ExtSupported.includes(fileExt) && fileType === "image")
     {
-      console.log(this.store);
       this.store
       .bills()
       .create({
